@@ -24,7 +24,6 @@ const putItemIntoShoppingCart = (item) => {
 };
 
 const removeItemFromShoppingCart = (itemName) => {
-  let findedItem = shopingCart.find((el) => el.name === itemName);
   shopingCart.splice(
     shopingCart.findIndex((obj) => {
       return obj.name === itemName;
@@ -58,14 +57,14 @@ const displayItem = (arg, id) => {
   target.appendChild(newTable);
 };
 
-// putItemIntoShoppingCart(items.find((el) => el.name === "paine"));
+putItemIntoShoppingCart(items.find((el) => el.name === "paine"));
 // putItemIntoShoppingCart(items.find((el) => el.name === "branza"));
 // putItemIntoShoppingCart(items.find((el) => el.name === "carne"));
 // putItemIntoShoppingCart(items.find((el) => el.name === "apa"));
 // putItemIntoShoppingCart(items.find((el) => el.name === "carne"));
 // removeItemFromShoppingCart("carne");
 // removeItemFromShoppingCart("carne");
-// removeItemFromShoppingCart("apa");
+// removeItemFromShoppingCart("paine");
 
 displayItem(items, "items");
 displayItem(shopingCart, "shopingCart");
