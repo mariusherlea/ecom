@@ -9,15 +9,6 @@ export default async function EditProductPage({
 }) {
   const product = await db.product.findUnique({
     where: { id },
-    select: {
-      id: true,
-      name: true,
-      description: true,
-      priceInCents: true,
-      isAvailableForPurchase: true,
-      filePath: true,
-      imagePath: true,
-    },
   });
   return (
     <>
