@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { isValid } from 'zod';
 import { isValidPassword } from './lib/isValidPassword';
 
-export async function middleware(req: NextRequest, res, next) {
+export async function middleware(req: NextRequest) {
   if ((await isAuthenticated(req)) === false) {
     return new NextResponse('Not Authenticated', {
       status: 401,
