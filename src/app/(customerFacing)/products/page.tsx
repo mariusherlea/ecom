@@ -10,7 +10,7 @@ const getProducts = cache(() => {
       name: 'asc',
     },
   });
-}, ['/', 'getProducts']);
+}, ['/products', 'getProducts']);
 
 export default function ProductsPage() {
   return (
