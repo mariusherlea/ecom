@@ -36,6 +36,13 @@ export async function POST(req: NextRequest) {
       select: { orders: { orderBy: { createdAt: 'desc' }, take: 1 } },
     });
 
+    const downLoadVerification = await db.downloadVerification.create({
+      data: {
+        productId,
+        expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24),
+      },
+    });
+
     await resend.emails.send({
       from: `Support <${process.env.SENDER_EMAIL}>`,
       to: email,
