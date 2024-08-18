@@ -3,14 +3,14 @@ import Hero from "./Hero";
 
 function Header() {
   return (
-    <header class="bg-white dark:bg-gray-900">
-      <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div class="flex h-16 items-center justify-between">
-          <div class="md:flex md:items-center md:gap-12">
-            <a class="block text-primary dark:text-primary" href="#">
-              <span class="sr-only">Home</span>
+    <header className="bg-white dark:bg-gray-900">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <div className="md:flex md:items-center md:gap-12">
+            <a className="block text-teal-600 dark:text-teal-600" href="#">
+              <span className="sr-only">Home</span>
               <svg
-                class="h-8"
+                className="h-8"
                 viewBox="0 0 28 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -23,21 +23,48 @@ function Header() {
             </a>
           </div>
 
-          <div class="hidden md:block">
+          <div className="hidden md:block">
             <nav aria-label="Global">
-              <ul class="flex items-center gap-6 text-sm">
+              <ul className="flex items-center gap-6 text-sm">
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                     href="#"
                   >
-                    Explore
+                    About
                   </a>
                 </li>
 
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    href="#"
+                  >
+                    Careers
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    href="#"
+                  >
+                    History
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    href="#"
+                  >
+                    Services
+                  </a>
+                </li>
+
+                <li>
+                  <a
+                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                     href="#"
                   >
                     Projects
@@ -46,37 +73,28 @@ function Header() {
 
                 <li>
                   <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                    className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                     href="#"
                   >
-                    About Us
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-                    href="#"
-                  >
-                    Contact Us
+                    Blog
                   </a>
                 </li>
               </ul>
             </nav>
           </div>
 
-          <div class="flex items-center gap-4">
-            <div class="sm:flex sm:gap-4">
+          <div className="flex items-center gap-4">
+            <div className="sm:flex sm:gap-4">
               <a
-                class="rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
+                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow dark:hover:bg-teal-500"
                 href="#"
               >
                 Login
               </a>
 
-              <div class="hidden sm:flex">
+              <div className="hidden sm:flex">
                 <a
-                  class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
                   href="#"
                 >
                   Register
@@ -84,19 +102,19 @@ function Header() {
               </div>
             </div>
 
-            <div class="block md:hidden">
-              <button class="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
+            <div className="block md:hidden">
+              <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="size-5"
+                  className="size-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  stroke-width="2"
+                  strokeWidth="2"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
