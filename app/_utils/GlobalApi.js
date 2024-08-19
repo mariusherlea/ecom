@@ -12,7 +12,7 @@ const axiosClient = axios.create({
 
 const getLatestProducts = async () => {
   try {
-    const response = await axiosClient.get("/products");
+    const response = await axiosClient.get("/products?populate=*");
     return response.data.data;
   } catch (error) {
     console.log(error);
