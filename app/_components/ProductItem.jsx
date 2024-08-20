@@ -1,7 +1,6 @@
 import { SquareChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 function ProductItem({ product }) {
   const bannerUrl = product?.attributes?.banner?.data?.attributes?.url;
@@ -10,7 +9,7 @@ function ProductItem({ product }) {
   // Only set imageUrl if bannerUrl exists
   const imageUrl = bannerUrl ? `${baseUrl}${bannerUrl}` : null;
   return (
-    <Link href={`/project-detail/` + product.id}>
+    <Link href={`/product-detail/` + product.id}>
       <div className="hover:border">
         <div>
           {imageUrl ? (

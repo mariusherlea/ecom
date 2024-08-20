@@ -8,7 +8,10 @@ export default function Home() {
       {/* Latest products */}
       <ProductSection />
       {/* Project source code */}
+      {/* <ProductSection /> */}
+
       {/* Icons packs */}
+      {/* <ProductSection /> */}
     </div>
   );
 }

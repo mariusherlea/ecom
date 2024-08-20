@@ -20,6 +20,13 @@ function ProductSection() {
       });
   };
 
+  const filterProducList = (category) => {
+    const result = productList.filter(
+      (item) => item.attributes.category === category
+    );
+    return result;
+  };
+
   return (
     <div>
       <ProductList productList={productList} />
