@@ -9,21 +9,19 @@ function ProductDetail({ params }) {
   const [producDetail, setProductDetail] = useState(null);
 
   useEffect(() => {
-    console.log("product id", params?.productId);
     params?.productId && getProductById_();
   }, [params?.productId]);
   const getProductById_ = () => {
     getProductById(params?.productId).then((data) => {
-      console.log(data);
       setProductDetail(data);
     });
   };
   return (
     <div className="p-5 py-12 px-10 md:px-28">
       <Breadcrumbs />
-      <div className="flex flex-col sm:flex-row mt-10 justify-around">
+      <div className="flex flex-col sm:flex-row mt-10">
         <ProjectBanner product={producDetail} />
-        <ProjectInfo />
+        <ProjectInfo product={producDetail} />
       </div>
     </div>
   );

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
 
 function ProjectBanner({ product }) {
   const bannerUrl = product?.attributes?.banner?.data?.attributes?.url;
