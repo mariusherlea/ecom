@@ -1,6 +1,9 @@
 "use client";
+import Breadcrumbs from "@/app/_components/Breadcrumbs";
 import { getProductById } from "@/app/_utils/GlobalApi";
 import { useEffect, useState } from "react";
+import ProjectBanner from "./_components/ProjectBanner";
+import ProjectInfo from "./_components/ProjectInfo";
 
 function ProductDetail({ params }) {
   const [producDetail, setProductDetail] = useState(null);
@@ -16,9 +19,11 @@ function ProductDetail({ params }) {
     });
   };
   return (
-    <div>
-      <div>
-        <h2>{producDetail?.attributes?.title}</h2>
+    <div className="p-5 py-12 px-10 md:px-28">
+      <Breadcrumbs />
+      <div className="flex flex-col sm:flex-row mt-10 justify-around">
+        <ProjectBanner product={producDetail} />
+        <ProjectInfo />
       </div>
     </div>
   );
