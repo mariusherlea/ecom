@@ -14,7 +14,7 @@ function ProjectBanner({ product }) {
           alt="banner"
           width={400}
           height={350}
-          className="rounded-lg object-cover"
+          className="rounded-lg object-cover text-center sm:float-right"
         />
       ) : (
         <p>No banner available</p>

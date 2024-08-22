@@ -28,4 +28,15 @@ const getProductById = async (id) => {
   }
 };
 
+const getProductByCategory = async (category) => {
+  try {
+    const response = await axiosClient.get(
+      `/products?populate=*&filters[category][$eq]=${category}`
+    );
+    return response.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export { getLatestProducts, getProductById };
