@@ -1,6 +1,6 @@
 "use client";
 import Breadcrumbs from "@/app/_components/Breadcrumbs";
-import { getProductById } from "@/app/_utils/GlobalApi";
+import { getProductById, getProductByCategory } from "@/app/_utils/GlobalApi";
 import { useEffect, useState } from "react";
 import ProjectBanner from "./_components/ProjectBanner";
 import ProjectInfo from "./_components/ProjectInfo";
@@ -8,6 +8,7 @@ import ProductList from "@/app/_components/ProductList";
 
 function ProductDetail({ params }) {
   const [producDetail, setProductDetail] = useState(null);
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
     params?.productId && getProductById_();
@@ -15,14 +16,15 @@ function ProductDetail({ params }) {
   const getProductById_ = () => {
     getProductById(params?.productId).then((data) => {
       setProductDetail(data);
+      getProductListByCategory(data);
     });
   };
 
-  const getProductListByCategory = (category) => {
-    const result = productList.filter(
-      (item) => item.attributes.category === category
-    );
-    return result;
+  const getProductListByCategory = (product) => {
+    getProductByCategory(product?.attributes?.category).then((data) => {
+      console.log(data);
+      setProductList(data);
+    });
   };
   return (
     <div className="p-5 py-12 px-10 md:px-28">
@@ -31,7 +33,10 @@ function ProductDetail({ params }) {
         <ProjectBanner product={producDetail} />
         <ProjectInfo product={producDetail} />
       </div>
-      <ProductList productList={}/>
+      <div>
+        <h2>Similar project</h2>
+        <ProductList productList={productList} />
+      </div>
     </div>
   );
 }
