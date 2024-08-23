@@ -39,12 +39,4 @@ const getProductByCategory = async (category) => {
   }
 };
 
-// const getProductByCategory = (category) =>
-//   axiosClient.get(`/products`, {
-//     params: {
-//       "filters[category][$eq]": category,
-//       populate: "*",
-//     },
-//   });
-
 export { getLatestProducts, getProductById, getProductByCategory };

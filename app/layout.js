@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./_components/Header";
 
 import Footer from "./_components/Footer";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -13,13 +14,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={raleway.className}>
-        <Header />
+    <ClerkProvider>
+      <html lang="en">
+        <body className={raleway.className}>
+          <Header />
 
-        {children}
-        <Footer />
-      </body>
-    </html>
+          {children}
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

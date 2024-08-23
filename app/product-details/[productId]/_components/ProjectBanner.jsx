@@ -8,7 +8,7 @@ function ProjectBanner({ product }) {
   const imageUrl = bannerUrl ? `${baseUrl}${bannerUrl}` : null;
   return (
     <div>
-      {imageUrl ? (
+      {product ? (
         <Image
           src={imageUrl}
           alt="banner"
@@ -17,7 +17,9 @@ function ProjectBanner({ product }) {
           className="rounded-lg object-cover text-center sm:float-right"
         />
       ) : (
-        <p>No banner available</p>
+        <div className="h-[350px] w-[350px] bg-slate-200 animate-pulse">
+          Loading...
+        </div>
       )}
     </div>
   );
