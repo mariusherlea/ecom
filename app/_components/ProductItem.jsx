@@ -9,7 +9,7 @@ function ProductItem({ product }) {
   // Only set imageUrl if bannerUrl exists
   const imageUrl = bannerUrl ? `${baseUrl}${bannerUrl}` : null;
   return (
-    <Link href={`/product-detail/` + product.id}>
+    <Link href={`/product-details/` + product.id}>
       <div className="hover:border">
         <div>
           {imageUrl ? (

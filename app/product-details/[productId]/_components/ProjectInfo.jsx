@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 
 function ProjectInfo({ product }) {
-  console.log(product);
+  // console.log(product);
   return (
     <div>
       <h2 className="text-[20px]">{product?.attributes?.title}</h2>
