@@ -1,10 +1,10 @@
 "use client";
-import Breadcrumbs from "@/app/_components/Breadcrumbs";
-import { getProductById, getProductByCategory } from "@/app/_utils/GlobalApi";
+import Breadcrumbs from "../../_components/Breadcrumbs";
+import { getProductById, getProductByCategory } from "../../_utils/GlobalApi";
 import { useEffect, useState } from "react";
 import ProjectBanner from "./_components/ProjectBanner";
 import ProjectInfo from "./_components/ProjectInfo";
-import ProductList from "@/app/_components/ProductList";
+import ProductList from "../../_components/ProductList";
 import { usePathname } from "next/navigation";
 
 function ProductDetail({ params }) {
