@@ -1,17 +1,21 @@
 "use client";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
+import { ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
 
 function Header() {
   const { user } = useUser();
+  const [isLogin, setIsLogin] = useState(false);
+  console.log(window.location.href);
+  useEffect(() => {
+    setIsLogin(window.location.href.toString().includes("sign-up"));
+
+    setIsLogin(window.location.href.toString().includes("sign-in"));
+  }, []);
+
   return (
-    user && (
+    !isLogin && (
       <header className="bg-white dark:bg-gray-900">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
@@ -93,14 +97,20 @@ function Header() {
             </div>
 
             <div className="flex items-center gap-4">
-              <div className="sm:flex sm:gap-4">
-                <SignedOut>
-                  <SignInButton />
-                </SignedOut>
+              {!user ? (
+                <div className="sm:flex sm:gap-4">
+                  <SignedOut>
+                    <SignInButton />
+                  </SignedOut>
+                </div>
+              ) : (
                 <SignedIn>
+                  <h2 className="flex items-center gap-2">
+                    <ShoppingCart className="text-primary cursor-pointer" /> (0)
+                  </h2>
                   <UserButton />
                 </SignedIn>
-              </div>
+              )}
 
               <div className="block md:hidden">
                 <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75">
