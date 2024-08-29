@@ -1,6 +1,7 @@
 import { BadgeCheck, OctagonAlert, ShoppingCart } from "lucide-react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { addToCart } from "../../../_utils/GlobalApi";
 
 function ProjectInfo({ product }) {
   const { user } = useUser();
@@ -11,7 +12,22 @@ function ProjectInfo({ product }) {
       router.push("/sign-in");
       return;
     } else {
-      console.log("add to cart");
+      // console.log("add to cart");
+      const data = {
+        data: {
+          userName: user.fullName,
+          email: user.emailAddresses[0].emailAddress,
+          products: product?.id,
+        },
+      };
+      addToCart(data).then(
+        (res) => {
+          console.log("Add to cart", res);
+        },
+        (error) => {
+          console.log("Error", error);
+        }
+      );
     }
   };
 

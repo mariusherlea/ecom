@@ -39,4 +39,12 @@ const getProductByCategory = async (category) => {
   }
 };
 
-export { getLatestProducts, getProductById, getProductByCategory };
+//Add to cart collection
+const addToCart = async (data) => {
+  try {
+    axiosClient.post("/carts", data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+export { getLatestProducts, getProductById, getProductByCategory, addToCart };

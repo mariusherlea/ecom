@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 function Header() {
   const { user } = useUser();
   const [isLogin, setIsLogin] = useState(false);
-  console.log(window.location.href);
+
   useEffect(() => {
     setIsLogin(window.location.href.toString().includes("sign-up"));
 
