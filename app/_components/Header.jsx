@@ -2,12 +2,13 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 import { ShoppingCart } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CartContext } from "../_context/CartContext";
 
 function Header() {
   const { user } = useUser();
   const [isLogin, setIsLogin] = useState(false);
-
+  const { cart, setCart } = useContext(CartContext);
   useEffect(() => {
     setIsLogin(window.location.href.toString().includes("sign-up"));
 
@@ -106,7 +107,8 @@ function Header() {
               ) : (
                 <SignedIn>
                   <h2 className="flex items-center gap-2">
-                    <ShoppingCart className="text-primary cursor-pointer" /> (0)
+                    <ShoppingCart className="text-primary cursor-pointer" /> (
+                    {cart?.length})
                   </h2>
                   <UserButton />
                 </SignedIn>
