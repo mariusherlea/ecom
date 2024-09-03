@@ -47,4 +47,23 @@ const addToCart = async (data) => {
     console.log(error);
   }
 };
-export { getLatestProducts, getProductById, getProductByCategory, addToCart };
+
+//get user cart items
+const getUserCartItems = async (email) => {
+  try {
+    const response = await axiosClient.get(
+      "carts?populate[products][populate][0]=banner&filters[email][$eq]=" +
+        email
+    );
+    return response.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export {
+  getLatestProducts,
+  getProductById,
+  getProductByCategory,
+  addToCart,
+  getUserCartItems,
+};

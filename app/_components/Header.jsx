@@ -4,6 +4,7 @@ import { useUser } from "@clerk/nextjs";
 import { ShoppingCart } from "lucide-react";
 import { useEffect, useState, useContext } from "react";
 import { CartContext } from "../_context/CartContext";
+import { getUserCartItems } from "../_utils/GlobalApi";
 
 function Header() {
   const { user } = useUser();
@@ -15,6 +16,13 @@ function Header() {
     setIsLogin(window.location.href.toString().includes("sign-in"));
   }, []);
 
+  const getCartItem = getUserCartItems(
+    user?.emailAddresses[0]?.emailAddress
+  ).then((res) => {
+    console.log(res);
+    // setCart(res);
+  });
+  // console.log(user.emailAddresses[0].emailAddress);
   return (
     !isLogin && (
       <header className="bg-white dark:bg-gray-900">
