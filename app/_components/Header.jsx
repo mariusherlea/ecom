@@ -5,7 +5,7 @@ import { ShoppingCart } from "lucide-react";
 import { useEffect, useState, useContext } from "react";
 import { CartContext } from "../_context/CartContext";
 import { getUserCartItems } from "../_utils/GlobalApi";
-
+import Cart from "./Cart";
 function Header() {
   const { user } = useUser();
   const [isLogin, setIsLogin] = useState(false);
@@ -119,6 +119,7 @@ function Header() {
                     {cart?.length})
                   </h2>
                   <UserButton />
+                  <Cart />
                 </SignedIn>
               )}
 
