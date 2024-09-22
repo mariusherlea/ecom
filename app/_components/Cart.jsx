@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../_context/CartContext";
+import Image from "next/image";
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
@@ -11,9 +12,23 @@ function Cart() {
           {cart?.map((item, index) => (
             <li key={index} className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <h3 className="text-red-500">
-                  {item?.attributes?.banner?.data?.attributes?.name}
-                </h3>
+                {item ? (
+                  <Image
+                    src={
+                      `http:/localhost:1337` +
+                      item?.attributes?.banner?.data?.attributes?.url
+                    }
+                    alt="banner"
+                    width={100}
+                    height={100}
+                    className="rounded-lg object-cover text-center sm:float-right"
+                  />
+                ) : (
+                  <div className="h-[100px] w-[100px] bg-slate-200 animate-pulse">
+                    Loading...
+                  </div>
+                )}
+
                 <div>
                   <h3 className="text-sm font-medium text-gray-700">
                     {item.attributes.title}
