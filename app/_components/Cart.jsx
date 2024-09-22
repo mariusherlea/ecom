@@ -11,11 +11,9 @@ function Cart() {
           {cart?.map((item, index) => (
             <li key={index} className="flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <img
-                  src={item.attributes.image}
-                  alt={item.attributes.title}
-                  className="h-16 w-16 rounded-full object-cover"
-                />
+                <h3 className="text-red-500">
+                  {item?.attributes?.banner?.data?.attributes?.name}
+                </h3>
                 <div>
                   <h3 className="text-sm font-medium text-gray-700">
                     {item.attributes.title}
