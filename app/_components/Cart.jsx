@@ -3,6 +3,7 @@ import { CartContext } from "../_context/CartContext";
 
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
+
   return (
     <div className="h-[300px] w-[250px] bg-gray-100 z-10 rounded-md absolute mx-10 right-10 top-12 p-5 border-2 border-gray-300 shadow-md overflow-auto">
       <div className="mt-4 space-y-6">
@@ -11,15 +12,18 @@ function Cart() {
             <li key={index} className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 <img
-                  src={item.image}
-                  alt={item.title}
+                  src={item.attributes.image}
+                  alt={item.attributes.title}
                   className="h-16 w-16 rounded-full object-cover"
                 />
                 <div>
                   <h3 className="text-sm font-medium text-gray-700">
-                    {item.title}
+                    {item.attributes.title}
                   </h3>
-                  <p className="text-sm text-gray-500">${item.price}</p>
+
+                  <p className="text-sm text-gray-500">
+                    ${item.attributes.pricing}
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
