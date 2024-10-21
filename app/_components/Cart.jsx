@@ -40,10 +40,7 @@ function Cart() {
 
                   <div>
                     <h3 className="text-sm font-medium text-gray-700">
-                      {
-                        item?.attributes?.products?.data[index]?.attributes
-                          ?.title
-                      }
+                      {item?.attributes?.products?.data[0]?.attributes?.title}
                     </h3>
                     <h4 className="text-gray-700 font-small text-sm">
                       {item?.attributes?.category}
