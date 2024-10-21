@@ -25,7 +25,7 @@ function ProjectInfo({ product }) {
       };
       addToCart(data).then(
         (res) => {
-          console.log("Add to cart", res);
+          // console.log("Add to cart", res);
           setCart((cart) => [...cart, product]);
         },
         (error) => {
