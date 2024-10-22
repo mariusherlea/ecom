@@ -11,7 +11,7 @@ function Cart() {
 
   // Helper function to format the image URL
   const getImageUrl = (path) => {
-    return path?.startsWith("http") ? path : `http://localhost:1337/${path}`;
+    return path?.startsWith("http") ? path : `http://localhost:1337${path}`;
   };
 
   return (
@@ -25,7 +25,8 @@ function Cart() {
                   {item ? (
                     <Image
                       src={getImageUrl(
-                        item?.attributes?.banner?.data?.attributes?.url
+                        item?.attributes?.products?.data[0]?.attributes?.banner
+                          .data.attributes.url
                       )}
                       alt="caevrevr"
                       width={100}
@@ -43,10 +44,14 @@ function Cart() {
                       {item?.attributes?.products?.data[0]?.attributes?.title}
                     </h3>
                     <h4 className="text-gray-700 font-small text-sm">
-                      {item?.attributes?.category}
+                      {
+                        item?.attributes?.products?.data[0]?.attributes
+                          ?.category
+                      }
                     </h4>
                     <p className="text-sm text-gray-500">
-                      ${item?.attributes?.pricing}
+                      $
+                      {item?.attributes?.products?.data[0]?.attributes?.pricing}
                     </p>
                   </div>
                 </div>
