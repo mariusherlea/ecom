@@ -6,8 +6,11 @@ import ProjectBanner from "./_components/ProjectBanner";
 import ProjectInfo from "./_components/ProjectInfo";
 import ProductList from "../../_components/ProductList";
 import { usePathname } from "next/navigation";
+import { use } from "react"; // Import the `use` hook
 
 function ProductDetail({ params }) {
+  const { productId } = use(params);
+
   //use to get the current path
   const path = usePathname();
   const [producDetail, setProductDetail] = useState(null);
@@ -15,11 +18,11 @@ function ProductDetail({ params }) {
 
   useEffect(() => {
     // console.log("project path", path);
-    params?.productId && getProductById_();
-  }, [params?.productId]);
+    productId && getProductById_();
+  }, [productId]);
 
   const getProductById_ = () => {
-    getProductById(params?.productId).then((data) => {
+    getProductById(productId).then((data) => {
       setProductDetail(data);
       getProductListByCategory(data);
     });
