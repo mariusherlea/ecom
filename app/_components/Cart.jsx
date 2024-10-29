@@ -52,17 +52,6 @@ function Cart() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <button
-                      className="text-gray-500 transition hover:text-gray-600"
-                      onClick={() => {
-                        const newCart = cart.filter((_, i) => i !== index);
-                        setCart(newCart);
-                      }}
-                    >
-                      Remove
-                    </button>
-                  </div>
                 </li>
               );
             })}
