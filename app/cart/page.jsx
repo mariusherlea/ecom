@@ -23,7 +23,7 @@ function Scart() {
           <div className="mt-8">
             <ul className="space-y-4">
               {cart?.map((item, index) => {
-                console.log(cart);
+                // console.log(cart);
                 const product = item?.attributes?.products?.data[0]?.attributes;
                 const bannerUrl = product?.banner?.data?.attributes?.url;
                 return (
@@ -49,18 +49,20 @@ function Scart() {
 
                     <div>
                       <h3 className="text-sm text-gray-900">
-                        Basic Tee 6-Pack
+                        {product?.title || "Untitled product"}
                       </h3>
 
                       <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
                         <div>
-                          <dt className="inline">Size:</dt>
-                          <dd className="inline">XXS</dd>
+                          <dt className="inline">
+                            {product?.category || "Unknown category"}
+                          </dt>
                         </div>
 
                         <div>
-                          <dt className="inline">Color:</dt>
-                          <dd className="inline">White</dd>
+                          <dt className="inline">
+                            ${product?.pricing || "0.00"}
+                          </dt>
                         </div>
                       </dl>
                     </div>

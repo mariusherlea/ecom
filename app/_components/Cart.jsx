@@ -59,7 +59,7 @@ function Cart() {
 
           <div className="space-y-4 text-center mt-5">
             <a
-              href="#"
+              href="/cart"
               className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
             >
               View my cart ({cart?.length})
