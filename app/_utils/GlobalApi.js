@@ -60,10 +60,22 @@ const getUserCartItems = async (email) => {
     console.log(error);
   }
 };
+
+//delete cart item
+
+const deleteCartItem = async (id) => {
+  try {
+    const response = await axiosClient.delete(`/carts/${id}`);
+    return response.data.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 export {
   getLatestProducts,
   getProductById,
   getProductByCategory,
   addToCart,
   getUserCartItems,
+  deleteCartItem,
 };

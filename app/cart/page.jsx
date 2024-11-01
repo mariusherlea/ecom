@@ -1,8 +1,8 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../_context/CartContext";
 import Image from "next/image";
-import { get } from "http";
+import { deleteCartItem } from "../_utils/GlobalApi";
 
 function Scart() {
   const { cart, setCart } = useContext(CartContext);
@@ -19,6 +19,26 @@ function Scart() {
         Number(element.attributes.products.data[0].attributes.pricing);
     });
     return totalAmount;
+  };
+
+  const deleteCartItem_ = (itemId) => {
+    deleteCartItem(itemId).then(
+      (res) => {
+        console.log("Delete from cart", res);
+        deleteCartItem(itemId).then(
+          (res) => {
+            console.log("Delete from cart", res);
+            setCart((cart) => cart.filter((item) => item.id !== itemId));
+          },
+          (error) => {
+            console.log("Error", error);
+          }
+        );
+      },
+      (error) => {
+        console.log("Error", error);
+      }
+    );
   };
 
   return (
@@ -52,11 +72,6 @@ function Scart() {
                         Loading...
                       </div>
                     )}
-                    {/* <img
-                      src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80"
-                      alt=""
-                      className="size-16 rounded object-cover"
-                    /> */}
 
                     <div>
                       <h3 className="text-sm text-gray-900">
@@ -76,7 +91,10 @@ function Scart() {
 
                     <div className="flex flex-1 items-center justify-end gap-2">
                       <dt className="inline">${product?.pricing || "0.00"}</dt>
-                      <button className="text-gray-600 transition hover:text-red-600">
+                      <button
+                        className="text-gray-600 transition hover:text-red-600"
+                        onClick={() => deleteCartItem_(item.id)}
+                      >
                         <span className="sr-only">Remove item</span>
 
                         <svg
