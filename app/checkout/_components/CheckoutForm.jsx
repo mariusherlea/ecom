@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import {
   useStripe,
   useElements,
@@ -8,6 +9,12 @@ import {
 function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const [errorMessage, setErrorMessage] = useState();
+  const [loading, setLoading] = useState(false);
+  const handleError = (error) => {
+    setLoading(false);
+    setErrorMessage(error.message);
+  };
 
   const handleSubmit = async (event) => {
     // We don't want to let default form submission happen here,
@@ -20,12 +27,27 @@ function CheckoutForm() {
       return;
     }
 
+    // Trigger form validation and wallet collection
+    const { error: submitError } = await elements.submit();
+    if (submitError) {
+      handleError(submitError);
+      return;
+    }
+
+    const res = await fetch("/api/create-intent", {
+      method: "POST",
+
+      body: JSON.stringify({
+        amount: 123,
+      }),
+    });
+    const clientSecret = await res.json();
     const result = await stripe.confirmPayment({
       //`Elements` instance that was used to create the Payment Element
-      clientSecret,
+      clientSecret: clientSecret,
       elements,
       confirmParams: {
-        return_url: "https://example.com/order/123/complete",
+        return_url: "http://localhost:3000",
       },
     });
 
