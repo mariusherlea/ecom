@@ -3,9 +3,11 @@ import React, { useContext } from "react";
 import { CartContext } from "../_context/CartContext";
 import Image from "next/image";
 import { deleteCartItem } from "../_utils/GlobalApi";
+import { useRouter } from "next/navigation";
 
 function Scart() {
   const { cart, setCart } = useContext(CartContext);
+  const router = useRouter();
 
   const getImageUrl = (path) => {
     return path?.startsWith("http") ? path : `http://localhost:1337${path}`;
@@ -128,12 +130,14 @@ function Scart() {
                 </dl>
 
                 <div className="flex justify-end">
-                  <a
-                    href="/checkout"
+                  <button
                     className="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
+                    onClick={() => {
+                      router.push("/checkout?amount=" + getTotalAmount());
+                    }}
                   >
                     Checkout
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

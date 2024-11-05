@@ -6,7 +6,7 @@ import {
   PaymentElement,
 } from "@stripe/react-stripe-js";
 
-function CheckoutForm() {
+function CheckoutForm({ amount }) {
   const stripe = useStripe();
   const elements = useElements();
   const [errorMessage, setErrorMessage] = useState();
@@ -38,7 +38,7 @@ function CheckoutForm() {
       method: "POST",
 
       body: JSON.stringify({
-        amount: 123,
+        amount: amount,
       }),
     });
     const clientSecret = await res.json();
@@ -47,7 +47,7 @@ function CheckoutForm() {
       clientSecret: clientSecret,
       elements,
       confirmParams: {
-        return_url: "http://localhost:3000",
+        return_url: "http://localhost:3000/",
       },
     });
 
