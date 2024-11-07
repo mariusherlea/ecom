@@ -34,3 +34,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+**Complete e-commerce platform from scratch, leveraging Strapi for backend content management, Axios for API handling, and Next.js with React for the frontend. Integrated Clerk for secure user authentication and route protection, and implemented Stripe for seamless payment processing. Developed a secure and efficient payment mechanism to handle transactions, enhancing the overall shopping experience. This project demonstrates expertise in full-stack JavaScript and payment solutions, delivering a high-performance and scalable online retail solution.**
